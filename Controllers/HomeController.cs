@@ -8,16 +8,24 @@ namespace EntityConnect.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+ 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        //TODO: Add data model for authentication
+        public IActionResult Login()
         {
             return View();
         }
+
+        public IActionResult Index()
+        {
+            //TODO: Maybe make a bool but need to be nullable
+            ViewBag.isHome = "True";
+            return View();
+        } 
 
         public IActionResult Privacy()
         {

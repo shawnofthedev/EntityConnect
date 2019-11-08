@@ -20,18 +20,25 @@
 </head>
 <body>
     <partial name="_Navbar" />
-    <partial name="_Hero" />
+
+    @if (ViewBag.isHome == "True")
+    {
+        //TODO: Clean up view with a new partial when it is Not the Home page
+        <partial name="_Hero" optional="true" />
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <partial name="_Footer" />
+
+    @*<footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2019 - EntityConnect - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
 
     <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
